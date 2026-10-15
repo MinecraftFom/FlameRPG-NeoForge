@@ -1,4 +1,4 @@
-package com.fomdev.flamerpg.registry.skill;
+package com.fomdev.flamerpg.modules.frpg_skill.skill;
 
 import com.fomdev.flamerpg.init.FlameRPG;
 import net.minecraft.network.chat.Component;

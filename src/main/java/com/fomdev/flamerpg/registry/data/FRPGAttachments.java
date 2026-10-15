@@ -1,7 +1,7 @@
 package com.fomdev.flamerpg.registry.data;
 
 import com.fomdev.flamerpg.init.FlameRPG;
-import com.fomdev.flamerpg.storage.SkillDataHolder;
+import com.fomdev.flamerpg.modules.frpg_skill.storage.SkillDataHolder;
 import com.mojang.serialization.Codec;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.network.codec.StreamCodec;

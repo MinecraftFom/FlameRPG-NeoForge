@@ -1,7 +1,7 @@
-package com.fomdev.flamerpg.storage;
+package com.fomdev.flamerpg.modules.frpg_skill.storage;
 
 import com.fomdev.flamerpg.registry.data.FRPGAttachments;
-import com.fomdev.flamerpg.registry.skill.Skill;
+import com.fomdev.flamerpg.modules.frpg_skill.skill.Skill;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import io.netty.buffer.ByteBuf;

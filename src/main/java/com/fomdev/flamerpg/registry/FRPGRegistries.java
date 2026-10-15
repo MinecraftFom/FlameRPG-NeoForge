@@ -1,6 +1,6 @@
 package com.fomdev.flamerpg.registry;
 
-import com.fomdev.flamerpg.registry.skill.SkillPage;
+import com.fomdev.flamerpg.modules.frpg_skill.skill.SkillPage;
 import com.fomdev.flamerpg.init.FlameRPG;
 import com.mojang.serialization.Lifecycle;
 import net.minecraft.core.MappedRegistry;
