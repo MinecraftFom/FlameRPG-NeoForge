@@ -6,7 +6,7 @@ public abstract class AbstractEventHook
 {
     public AbstractEventHook()
     {
-        if (!this.getInitialized())
+        if (this.getInitialized())
             throw new IllegalStateException("Current class already initialized");
 
         this.setInitialized();
