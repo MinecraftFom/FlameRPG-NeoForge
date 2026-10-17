@@ -14,8 +14,6 @@
 ![Java](https://img.shields.io/badge/Java-21-0b4f8a?style=for-the-badge&logo=openjdk&logoColor=white)
 ![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-8b0000?style=for-the-badge)
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
 </div>
 
 ## ▍一、摘要 / ABSTRACT
@@ -24,7 +22,7 @@
 >
 > 在本模组中，玩家可获得 **冒险** 与 **角色扮演（RPG）** 两条主线的 **一体化融合体验**。
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+---
 
 ## ▍二、核心链接 / ESSENTIAL LINKS
 
@@ -36,7 +34,7 @@
 | Fom477 个人网站 | [fom477.fomdev.com](https://fom477.fomdev.com) |
 | 代码仓库 | [MinecraftFom/FlameRPG-NeoForge](https://github.com/MinecraftFom/FlameRPG-NeoForge) |
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+---
 
 ## ▍三、模组架构 / MOD STRUCTURE
 
@@ -64,7 +62,7 @@
 | Mod ID | `frpg_skill` |
 | 模组名称 | `FlameRPG: Skill` |
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+---
 
 ## ▍四、技术规格 / TECHNICAL SPECIFICATION
 
@@ -86,7 +84,7 @@
 
 产物输出至 `build/libs/`。
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+---
 
 <div align="center">
 
