@@ -159,7 +159,7 @@ src/generated/resources/                          数据生成输出（如需保
 | 高 | 贴图为占位图 | `assets/flamerpg/textures/gui/` 下 6 张图为程序生成的占位素材，需美术替换 |
 | 中 | 技能内容为空 | 没有内置技能数据，全靠外部监听 `FillSkillTreeEvent` 注入 |
 | 中 | 无游戏内测试 | 未接入 GameTest，建议为注册表与数据附件补最小测试 |
-| 中 | 未发布 | 没有 Modrinth / CurseForge 页面，没有打 tag 发版 |
+| 中 | 未上架分发平台 | GitHub 已发 `v1.0.0`，但还没有 Modrinth / CurseForge 页面 |
 | 低 | `Util` 里的工具方法偏少 | 颜色取反等属于 UI 辅助，后续可能随 UI 实现扩充 |
 
 ### 6.3 本次未做 / 未验证（交接时请注意）
@@ -178,6 +178,12 @@ src/generated/resources/                          数据生成输出（如需保
 | **`FillSkillTreeEvent#isFor` 可疑** | **未改**。`parent.registry().equals(this.page.location())` 的比较对象看起来不对 | 需作者确认原始意图后修正 |
 | **事件钩子设计** | 仅修正了继承链查找；`status` 静态字段 + 反射置位的整体设计**保持不变** | 视后续需求决定是否改为显式注册 |
 | **上游同步** | 只添加了 `upstream` remote，**未执行** `git fetch upstream` / `merge` | 需要跟进官方更新时再执行 |
+
+### 6.4 发行记录
+
+| 版本 | 日期 | 产物 | 说明 |
+| :--- | :--- | :--- | :--- |
+| `v1.0.0` | 2026-10-17 | `flamerpg-1.0.0.jar`（45,027 B，sha256 `3aba660a…a163`） | 首个开发版，仅 GitHub Release |
 
 ---
 

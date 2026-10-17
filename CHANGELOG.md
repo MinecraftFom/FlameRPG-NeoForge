@@ -6,7 +6,13 @@
 
 ---
 
-## [未发布] / Unreleased
+## [1.0.0] — 2026-10-17
+
+> 首个对外发行版本（开发版）。
+>
+> - 发行页：[releases/tag/v1.0.0](https://github.com/zzy89216-gif/FlameRPG-NeoForge_zzy/releases/tag/v1.0.0)
+> - 产物：`flamerpg-1.0.0.jar`（45,027 字节）
+> - SHA-256：`3aba660a726b6257ac8e4e60991d8b9331401e6603a7378dfea8c3c458c8a163`
 
 ### 新增
 
@@ -68,9 +74,10 @@
 
 ---
 
-## [1.0.0] — 开发基线 / Baseline
+## [0.0.0] — 上游基线 / Upstream baseline
 
-> 状态：开发中，尚未对外发版。对应上游 `MinecraftFom/FlameRPG-NeoForge` 提交 `7542843`。
+> 状态：未发行。对应上游 `MinecraftFom/FlameRPG-NeoForge` 提交 `7542843`，
+> 是 `1.0.0` 的功能基础。
 
 ### 新增
 
