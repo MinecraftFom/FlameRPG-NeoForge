@@ -1,0 +1,10 @@
+{
+  "gui.flamerpg.skill_tree.title": "Skill Tree",
+  "gui.flamerpg.skill_tree.points": "Skill Points: %s",
+  "gui.flamerpg.skill_tree.status.locked": "Locked",
+  "gui.flamerpg.skill_tree.status.available": "Available",
+  "gui.flamerpg.skill_tree.status.unlocked": "Unlocked",
+  "gui.flamerpg.skill_tree.requires.points": "Requires %s point(s)",
+  "gui.flamerpg.skill_tree.requires.parent": "Requires: %s",
+  "gui.flamerpg.skill_tree.no_points": "Not enough skill points"
+}

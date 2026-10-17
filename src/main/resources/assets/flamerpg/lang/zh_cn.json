@@ -1,0 +1,10 @@
+{
+  "gui.flamerpg.skill_tree.title": "技能树",
+  "gui.flamerpg.skill_tree.points": "技能点：%s",
+  "gui.flamerpg.skill_tree.status.locked": "未解锁",
+  "gui.flamerpg.skill_tree.status.available": "可解锁",
+  "gui.flamerpg.skill_tree.status.unlocked": "已解锁",
+  "gui.flamerpg.skill_tree.requires.points": "需要 %s 点技能点",
+  "gui.flamerpg.skill_tree.requires.parent": "前置技能：%s",
+  "gui.flamerpg.skill_tree.no_points": "技能点不足"
+}
