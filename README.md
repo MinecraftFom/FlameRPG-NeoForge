@@ -9,10 +9,10 @@
 
 **FRPG — 面向多人在线服务器的 MMORPG 级玩法模组**
 
-![Minecraft](https://img.shields.io/badge/Minecraft-1.21.1-1f1f1f?style=for-the-badge&logo=minecraft&logoColor=white)
-![NeoForge](https://img.shields.io/badge/NeoForge-21.1.252-e8722a?style=for-the-badge)
-![Java](https://img.shields.io/badge/Java-21-0b4f8a?style=for-the-badge&logo=openjdk&logoColor=white)
-![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-8b0000?style=for-the-badge)
+[![Minecraft](https://img.shields.io/badge/Minecraft-1.21.1-1f1f1f?style=for-the-badge&logo=minecraft&logoColor=white)](https://www.minecraft.net/)
+[![NeoForge](https://img.shields.io/badge/NeoForge-21.1.252-e8722a?style=for-the-badge)](https://neoforged.net/)
+[![Java](https://img.shields.io/badge/Java-21-0b4f8a?style=for-the-badge&logo=openjdk&logoColor=white)](https://openjdk.org/projects/jdk/21/)
+[![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-8b0000?style=for-the-badge)](https://github.com/zzy89216-gif/FlameRPG-NeoForge_zzy)
 
 </div>
 
