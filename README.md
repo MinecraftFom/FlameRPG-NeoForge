@@ -31,12 +31,12 @@
 
 ## ▍II. ESSENTIAL LINKS
 
-| Resource | Entry |
+| Type | Link |
 | :--- | :--- |
 | Team GitHub | [MinecraftFom](https://github.com/MinecraftFom) |
-| Team website | [git.fomdev.com](https://git.fomdev.com) |
+| Team website | [Fom's Dev Website](https://git.fomdev.com) |
 | Fom477 on GitHub | [Fom477](https://github.com/Fom477) |
-| Fom477 website | [fom477.fomdev.com](https://fom477.fomdev.com) |
+| Fom477 website | [Fom477 Website](https://fom477.fomdev.com) |
 | Source repository | [MinecraftFom/FlameRPG-NeoForge](https://github.com/MinecraftFom/FlameRPG-NeoForge) |
 | Handover doc | [HANDOVER.md](./HANDOVER.md) — environment, structure, workflow, troubleshooting |
 | Changelog | [CHANGELOG.md](./CHANGELOG.md) |
@@ -46,7 +46,7 @@
 
 ## ▍III. MOD STRUCTURE
 
-The mod is assembled from **multiple sub-modules** that work together as one system.
+The mod is assembled from **multiple submodules** that work together as one system.
 
 ### 3.1 Parent module — `flamerpg`
 
@@ -84,13 +84,19 @@ The mod is assembled from **multiple sub-modules** that work together as one sys
 | Mod version | `1.0.0` |
 | License | All Rights Reserved |
 
-### Build
+### Build & Run
 
+Run: 
+```bash
+./gradlew runClient
+```
+Build:
 ```bash
 ./gradlew build
+./gradlew jar
 ```
 
-Artifacts are written to `build/libs/`.
+Artifacts are written to [build/libs/](./build/libs).
 
 ---
 
