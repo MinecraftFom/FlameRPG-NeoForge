@@ -12,7 +12,8 @@
 [![Minecraft](https://img.shields.io/badge/Minecraft-1.21.1-1f1f1f?style=for-the-badge&logo=minecraft&logoColor=white)](https://www.minecraft.net/)
 [![NeoForge](https://img.shields.io/badge/NeoForge-21.1.252-e8722a?style=for-the-badge)](https://neoforged.net/)
 [![Java](https://img.shields.io/badge/Java-21-0b4f8a?style=for-the-badge&logo=openjdk&logoColor=white)](https://openjdk.org/projects/jdk/21/)
-[![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-8b0000?style=for-the-badge)](https://github.com/zzy89216-gif/FlameRPG-NeoForge_zzy)
+[![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-8b0000?style=for-the-badge)](https://github.com/zzy89216-gif/FlameRPG-NeoForge_zzy/blob/master/LICENSE)
+[![Build](https://github.com/zzy89216-gif/FlameRPG-NeoForge_zzy/actions/workflows/build.yml/badge.svg)](https://github.com/zzy89216-gif/FlameRPG-NeoForge_zzy/actions/workflows/build.yml)
 
 </div>
 
@@ -33,6 +34,9 @@
 | Fom477 GitHub 主页 | [Fom477](https://github.com/Fom477) |
 | Fom477 个人网站 | [fom477.fomdev.com](https://fom477.fomdev.com) |
 | 代码仓库 | [MinecraftFom/FlameRPG-NeoForge](https://github.com/MinecraftFom/FlameRPG-NeoForge) |
+| 交接文档 | [HANDOVER.md](./HANDOVER.md) — 环境、结构、流程与排障 |
+| 更新日志 | [CHANGELOG.md](./CHANGELOG.md) |
+| 授权声明 | [LICENSE](./LICENSE) |
 
 ---
 
@@ -40,14 +44,14 @@
 
 本模组采用 **模块化装配结构**，由多个子模块（sub-module）协同构成。
 
-### 3.1 主模组 — `flame_rpg`
+### 3.1 主模组 — `flamerpg`
 
 | 项目 | 规格 |
 | :--- | :--- |
 | 定位 | **父模组（Parent Mod）**，承担核心装配与全局注册 |
 | 包路径 | [`com.fomdev.flamerpg`](./src/main/java/com/fomdev/flamerpg) |
 | 主类 | [`com.fomdev.flamerpg.init.FlameRPG`](./src/main/java/com/fomdev/flamerpg/init/FlameRPG.java) |
-| Mod ID | `flame_rpg` |
+| Mod ID | `flamerpg` |
 | 模组名称 | `Flame RPG` |
 | 核心开发 | Fom477（Fom's Dev） |
 | 联合开发 | 无 |
@@ -88,7 +92,7 @@
 
 <div align="center">
 
-**FLAME RPG** · `flame_rpg` + `frpg_skill`
+**FLAME RPG** · `flamerpg` + `frpg_skill`
 
 *Adventure & RPG — 一体化交付*
 
