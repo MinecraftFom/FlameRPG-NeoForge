@@ -5,7 +5,7 @@
 
 <div align="center">
 
-[![📖 Simplfied Chinese Docs](https://img.shields.io/badge/%F0%9F%93%96-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3-e8722a?style=for-the-badge)](./README.zh-CN.md)
+[![📖 Simplfied Chinese Docs](https://img.shields.io/badge/DOCS-Simplfied%20Chinese%20Documentaetion-e8722a?style=for-the-badge)](./README.zh-CN.md)
 
 # 🜂 FLAME RPG
 
@@ -83,6 +83,18 @@ The mod is assembled from **multiple submodules** that work together as one syst
 | Mappings | Parchment `2024.11.17` |
 | Mod version | `1.0.0` |
 | License | All Rights Reserved |
+
+## | V. MOD AUTHORS
+
+| Part | Developers |
+| :--- | :---       |
+| Leading Developer | Fom477 |
+| Co Developer | ZZY |
+| Chinese Translation | ZZY |
+| Art | Fom477 |
+| Code | Fom477, ZZY |
+| Scripts | Fom477 |
+| Project Management | Fom477 (Fom's Dev) |
 
 ### Build & Run
 
