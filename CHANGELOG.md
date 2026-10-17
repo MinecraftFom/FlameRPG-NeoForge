@@ -48,6 +48,17 @@
 - `assets/flamerpg/textures/gui/` 中的贴图为程序生成的几何占位图（512×512），
   需由美术资源替换。
 
+### 未完成 / 未验证
+
+- **模组尚未真正启动过。** `./gradlew runServer` 需先下载约 3800 个客户端资源，
+  本次未跑完即中止，因此 mixin 配置、语言文件、贴图在运行期的加载情况**未经实测**。
+- **技能树 UI 未实现**，没有任何界面/渲染代码。
+- **无测试用例**，`./gradlew test` 恒为 `NO-SOURCE`。
+- **GitHub Actions 未实际运行**，工作流推送后才有首次执行记录。
+- **未修**：`SkillDataHolder` 的 record 内持有可变 `ArrayList`，`unlock()` 原地修改
+  并返回 `this`，与 record 的 `equals/hashCode` 语义不一致。
+- **未改**：`FillSkillTreeEvent#isFor` 的比较对象可疑，需作者确认原始意图。
+
 ---
 
 ## [1.0.0] — 开发基线 / Baseline

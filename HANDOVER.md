@@ -147,7 +147,6 @@ src/generated/resources/                          数据生成输出（如需保
 - 构建工程化：`.gitignore`、`LICENSE`、GitHub Actions、上游 remote
 - **构建已验证通过**：`./gradlew build` 在 JDK 21 / Ubuntu 24.04 下 `BUILD SUCCESSFUL`，
   产物 `build/libs/flamerpg-1.0.0.jar` 内含模组元数据、语言文件、贴图与 mixin 配置
-
 ### 6.2 已知限制 / 待办
 
 | 优先级 | 事项 | 说明 |
@@ -158,6 +157,23 @@ src/generated/resources/                          数据生成输出（如需保
 | 中 | 无游戏内测试 | 未接入 GameTest，建议为注册表与数据附件补最小测试 |
 | 中 | 未发布 | 没有 Modrinth / CurseForge 页面，没有打 tag 发版 |
 | 低 | `Util` 里的工具方法偏少 | 颜色取反等属于 UI 辅助，后续可能随 UI 实现扩充 |
+
+### 6.3 本次未做 / 未验证（交接时请注意）
+
+以下事项**在本轮改动中没有完成或没有验证**，不要当成已完成项：
+
+| 事项 | 当前状态 | 建议下一步 |
+| :--- | :--- | :--- |
+| **运行时验证** | **未完成**。`./gradlew runServer` 需要先下载约 3800 个客户端资源（本次耗时过长被中止），因此模组**从未真正启动过**。`flamerpg.mixins.json`、语言文件、贴图是否被游戏正确加载，均**未经实测** | 在有网络的机器上跑一次 `./gradlew runClient`，确认无 mixin 相关报错、技能贴图可加载 |
+| **技能树 UI** | 未实现。没有任何 GUI/渲染代码 | 接入 `FillSkillTreeEvent` 的产物并绘制技能节点 |
+| **语言键未接入** | `assets/flamerpg/lang/*.json` 里的 8 个键当前**没有任何代码引用**，属于预留文案 | UI 实现时用 `Component.translatable(...)` 接上 |
+| **贴图为占位图** | 6 张 512×512 图由脚本生成的几何图形，非最终美术素材 | 由美术替换同名文件 |
+| **CI 未实际运行** | `.github/workflows/build.yml` 尚未在 GitHub 上触发过一次，Badge 初始会显示 `no status` | 推送后到 Actions 页面确认首次构建通过 |
+| **无单元测试 / GameTest** | `./gradlew test` 恒为 `NO-SOURCE`，没有任何测试用例 | 为 `Mth`、`RGBColor`、`SkillDataHolder` 的编解码补测试 |
+| **`SkillDataHolder` 可变性隐患** | **未修**。record 内持有可变 `ArrayList`，`unlock()` 原地修改并返回 `this`，`equals/hashCode` 语义与可变状态不一致 | 改为不可变写法：每次返回新的 holder |
+| **`FillSkillTreeEvent#isFor` 可疑** | **未改**。`parent.registry().equals(this.page.location())` 的比较对象看起来不对 | 需作者确认原始意图后修正 |
+| **事件钩子设计** | 仅修正了继承链查找；`status` 静态字段 + 反射置位的整体设计**保持不变** | 视后续需求决定是否改为显式注册 |
+| **上游同步** | 只添加了 `upstream` remote，**未执行** `git fetch upstream` / `merge` | 需要跟进官方更新时再执行 |
 
 ---
 
