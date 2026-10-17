@@ -20,11 +20,16 @@
 - **`.github/workflows/build.yml`**：push / PR 自动构建并上传 jar 产物
 - **`HANDOVER.md`**：交接文档（环境、结构、流程、已知问题、排障）
 - **`CHANGELOG.md`**：本文件
+- **HSL 颜色支持**：`RGBColor.ofHsl(h, s, l)` 由 HSL 构造颜色，`RGBColor#toHsl()` 反向转换；
+  色相按 360 取模、饱和度与亮度夹取到 `[0, 1]`，非法输入不抛异常
+- **`RGBColor(java.awt.Color)` 桥接构造器**：便于从 AWT 颜色迁移，不调用则不加载 AWT
 
 ### 变更
 
-- **移除 `java.awt.Color` 依赖**：颜色类型改为项目自有的 `RGBColor`（RGBA 值对象），
+- **核心逻辑不再依赖 `java.awt.Color`**：颜色类型改为项目自有的 `RGBColor`（RGBA 值对象），
   避免在裁剪运行时/headless 服务端上依赖 `java.desktop` 模块。
+  - 同时提供可选的桥接构造器 `RGBColor(java.awt.Color)`：仅在实际调用时才需要 AWT，
+    不调用则 `java.awt.Color` 不会被加载
   - `Skill.SkillDisplayProperties#color` / `#border`：`Optional<Color>` → `Optional<RGBColor>`
   - `Util.opposite(Color)` → `Util.opposite(RGBColor)`
 - **`Util` 收敛为门面**：数值逻辑统一由 `Mth` 实现，`Util` 只做转发，消除重复代码

@@ -108,7 +108,7 @@ src/main/java/com/fomdev/flamerpg/
 ├── util/
 │   ├── Mth.java                          数学工具（偶数/奇数/向上取整）
 │   ├── Util.java                         通用工具门面（统一转发至 Mth / RGBColor）
-│   └── RGBColor.java                     RGBA 颜色值对象（替代 java.awt.Color）
+│   └── RGBColor.java                     RGBA 颜色值对象（替代 java.awt.Color，支持 HSL / AWT 桥接）
 ├── mixin/package-info.java               Mixin 注入点包（当前为空，保证配置声明的包存在）
 └── modules/frpg_skill/                   技能子模块
     ├── FRPGSkill.java                    子模块入口（@Mod("frpg_skill")）
@@ -133,6 +133,10 @@ src/generated/resources/                          数据生成输出（如需保
 - **`AbstractEventHook` 的初始化保护。** 基类构造时通过反射找到子类里标注了
   `@EventHookStatusStorer` 的静态 `boolean` 字段，若已为 `true` 则抛异常，
   用于防止钩子被重复实例化。
+- **颜色模型 `RGBColor`。** 核心逻辑不依赖 `java.awt`，提供三种入口：
+  `ofRgb / ofArgb`（整数通道）、`ofHsl(h, s, l)`（色相取模、饱和度亮度夹取）、
+  `RGBColor(java.awt.Color)`（可选桥接，不调用则不加载 AWT）。
+  反向可用 `toArgb()` / `toHsl()`。
 
 ---
 
