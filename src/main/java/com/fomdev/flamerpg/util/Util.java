@@ -1,24 +1,38 @@
 package com.fomdev.flamerpg.util;
 
-import java.awt.*;
-
-public class Util
+/**
+ * 通用工具。
+ *
+ * <p>数值相关的实现统一收敛到 {@link Mth}，本类只做转发，避免同一份
+ * 逻辑在两个类里各写一遍。</p>
+ */
+public final class Util
 {
-    public static Color opposite(Color org)
+    private Util()
     {
-        int a = org.getAlpha();
-        int r = org.getRed();
-        int g = org.getGreen();
-        int b = org.getBlue();
-
-        int rr = 0xFF - r;
-        int rg = 0xFF - g;
-        int rb = 0xFF - b;
-        return new Color(a, rr, rg, rb);
     }
 
+    /** @see RGBColor#opposite() */
+    public static RGBColor opposite(RGBColor org)
+    {
+        return org.opposite();
+    }
+
+    /** @see Mth#round(int, int) */
     public static int round(int d, int dr)
     {
-        return d % dr != 0? d / dr + 1: d / dr;
+        return Mth.round(d, dr);
+    }
+
+    /** @see Mth#even(int) */
+    public static boolean even(int value)
+    {
+        return Mth.even(value);
+    }
+
+    /** @see Mth#odd(int) */
+    public static boolean odd(int value)
+    {
+        return Mth.odd(value);
     }
 }

@@ -1,11 +1,11 @@
 package com.fomdev.flamerpg.modules.frpg_skill.skill;
 
 import com.fomdev.flamerpg.init.FlameRPG;
+import com.fomdev.flamerpg.util.RGBColor;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 
-import java.awt.Color;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,8 +26,8 @@ public record Skill(
             int y,
             int size,
             SkillShape shape,
-            Optional<Color> color,
-            Optional<Color> border
+            Optional<RGBColor> color,
+            Optional<RGBColor> border
     )
     {
 
