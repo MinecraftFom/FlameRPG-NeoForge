@@ -10,6 +10,7 @@ authors = "Owner: Fomdev. Code: Fom477"
 description = '''
 MMORPG for Minecraft Servers
 '''
+logoFile = "icon.png"
 
 [[mods]]
 modId = "frpg_skill"
@@ -19,6 +20,7 @@ authors = "Shimoe Koharu"
 description = '''
 Submodule for FlameRPG, aiming to create a skill tree
 '''
+logoFile = "icon.png"
 
 [[mixins]]
 config="flamerpg.mixins.json"
