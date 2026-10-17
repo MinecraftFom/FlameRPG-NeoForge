@@ -144,13 +144,13 @@ public record RGBColor(int r, int g, int b, int a)
 
     private static double clamp01(double value)
     {
-        return value < 0.0 ? 0.0 : (value > 1.0 ? 1.0 : value);
+        return Math.clamp(0.0, value, 1.0);
     }
 
     private static int toChannel(double value)
     {
         int channel = (int) Math.round(value * 255.0);
-        return channel < 0 ? 0 : (channel > 0xFF ? 0xFF : channel);
+        return channel < 0 ? 0 : (Math.min(channel, 0xFF));
     }
 
     private static void checkChannel(String name, int value)
