@@ -1,0 +1,36 @@
+# ── 构建产物 ──────────────────────────────────────────────
+build/
+out/
+bin/
+repo/
+
+# ── Gradle ───────────────────────────────────────────────
+.gradle/
+
+# ── IDE ──────────────────────────────────────────────────
+.idea/
+*.iml
+*.ipr
+*.iws
+*.launch
+.classpath
+.project
+.settings/
+.metadata/
+.vscode/
+.eclipse/
+.factorypath
+
+# ── 运行目录（runClient / runServer / runData 产生）────────
+run/
+runs/
+
+# ── 数据生成缓存 ──────────────────────────────────────────
+src/generated/**/.cache/
+
+# ── 操作系统 / 杂项 ───────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.log
+hs_err_pid*.log
+replay_pid*.log

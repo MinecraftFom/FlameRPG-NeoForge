@@ -1,0 +1,45 @@
+版权所有 (c) Flame RPG 项目作者（Fomdev / Fom477）
+Copyright (c) Flame RPG Project Authors (Fomdev / Fom477)
+
+保留所有权利。ALL RIGHTS RESERVED.
+
+本授权声明适用于本仓库内的全部内容，包括但不限于源代码、资源文件、
+文档、美术素材及其衍生作品，以及 `flamerpg`（FlameRPG: Core）与
+`frpg_skill`（FlameRPG: Skill）两个模组本体。
+
+未经版权持有人事先书面许可，任何个人或组织不得实施下列行为：
+
+  1. 复制、转载、镜像或以任何形式再分发本作品的全部或部分内容；
+  2. 修改、翻译、演绎本作品，或基于本作品创作衍生作品；
+  3. 将本作品或其衍生作品用于任何商业用途，包括但不限于付费服务器、
+     付费整合包、付费下载渠道；
+  4. 移除、遮蔽或篡改本作品中的版权声明、作者署名及本授权文本。
+
+在遵守下列条件的前提下，允许个人在非商业环境中下载、安装并使用本作品：
+
+  a. 保留本授权文件及源代码中的全部版权与署名信息；
+  b. 不得以任何方式暗示本作品作者为你的使用行为背书。
+
+本作品按"现状"提供，不附带任何形式的明示或默示担保，包括但不限于对
+适销性、特定用途适用性及不侵权的担保。在任何情况下，版权持有人均不对
+因使用或无法使用本作品而产生的任何索赔、损害或其他责任承担责任。
+
+如需获取授权，请通过项目页面联系版权持有人。
+
+────────────────────────────────────────────────────────────
+
+This license applies to all contents of this repository, including but not
+limited to source code, resource files, documentation, art assets and
+derivative works thereof, as well as the `flamerpg` (FlameRPG: Core) and
+`frpg_skill` (FlameRPG: Skill) mods.
+
+No part of this work may be copied, redistributed, modified, translated,
+sublicensed or used for any commercial purpose without the prior written
+permission of the copyright holder.
+
+Personal, non-commercial use is permitted provided that all copyright and
+attribution notices are retained and no endorsement by the authors is implied.
+
+THIS WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED. IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY ARISING FROM THE USE OF THIS WORK.
