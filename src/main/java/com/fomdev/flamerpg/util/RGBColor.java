@@ -1,161 +1,169 @@
 package com.fomdev.flamerpg.util;
 
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import io.netty.buffer.ByteBuf;
+import net.minecraft.Util;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
+
+import java.awt.*;
+
 /**
- * 8 位 RGBA 颜色值（不可变）。
+ * 8 bit immutable ARGB value
  *
- * <p>用于替代 {@code java.awt.Color}：后者会引入 {@code java.desktop} 模块依赖，
- * 在裁剪过的服务端运行时或 headless 环境下并不一定可用，而本模组的颜色数据
- * 只需要「四个字节」这一件事。</p>
- *
- * <p>若调用方手里恰好持有 {@code java.awt.Color}，可直接使用
- * {@link #RGBColor(java.awt.Color)} 转换。该构造器是<b>可选的桥接</b>：
- * JVM 对方法描述符中的类型采取惰性解析，只要不调用它，{@code java.awt.Color}
- * 就不会被加载，因此不会影响无 AWT 的运行时。</p>
+ * <p>In replacement of java.awt, solving the problem of the
+ * instability of java.desktop in headless environment for
+ * better server support
+ * </p>
  */
-public record RGBColor(int r, int g, int b, int a)
+public record RGBColor(int rgba)
 {
+    public static final Codec<RGBColor> CODEC;
+    public static final StreamCodec<ByteBuf, RGBColor> STREAM_CODEC;
+
+    public RGBColor(int r, int g, int b, int a)
+    {
+        this(Util.make(
+                () ->
+                {
+                    int ca = (a << 24);
+                    int cr = (r << 16);
+                    int cg = (g << 8);
+                    return ca | cr | cg | b;
+                }
+        ));
+    }
+
+    public RGBColor(int r, int g, int b)
+    {
+        this(r, g, b, 0xFF);
+    }
+
     public RGBColor
     {
-        checkChannel("r", r);
-        checkChannel("g", g);
-        checkChannel("b", b);
-        checkChannel("a", a);
+        if (0xFFFFFF - this.rgba() < 0)
+            throw new IllegalArgumentException("Some color channels have errors occured");
     }
 
-    /**
-     * 从 {@code java.awt.Color} 桥接构造。
-     *
-     * @param color AWT 颜色对象，不得为 {@code null}
-     */
     public RGBColor(java.awt.Color color)
     {
-        this(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha());
+        this(color.getRGB());
     }
 
-    /** 以不透明方式构造。 */
-    public static RGBColor ofRgb(int r, int g, int b)
+    // Channel ALPHA
+    public int alpha()
     {
-        return new RGBColor(r, g, b, 0xFF);
+        return (this.rgba() >> 24) & 0xFF;
     }
 
-    /** 从 {@code 0xRRGGBB} 形式的整数构造，alpha 取 0xFF。 */
-    public static RGBColor ofArgb(int argb)
+    // Channel RED
+    public int red()
     {
-        return new RGBColor((argb >> 16) & 0xFF, (argb >> 8) & 0xFF, argb & 0xFF, (argb >>> 24) & 0xFF);
+        return (this.rgba() >> 16) & 0xFF;
     }
 
-    /** 打包为 {@code 0xAARRGGBB}。 */
-    public int toArgb()
+    // Channel GREEN
+    public int green()
     {
-        return (a << 24) | (r << 16) | (g << 8) | b;
+        return (this.rgba() >> 8) & 0xFF;
     }
 
-    /** 反色，保留 alpha。 */
+    // Channel BLUE
+    public int blue()
+    {
+        return this.rgba() & 0xFF;
+    }
+
     public RGBColor opposite()
     {
-        return new RGBColor(0xFF - r, 0xFF - g, 0xFF - b, a);
+        int ca = this.alpha();
+        int cr = this.red();
+        int cg = this.green();
+        int cb = this.blue();
+        return new RGBColor(0xFF - cr, 0xFF - cg, 0xFF - cb, ca);
     }
 
-    /** 按给定不透明度返回新颜色。 */
-    public RGBColor withAlpha(int alpha)
+    public RGBColor transparent(int alpha)
     {
-        return new RGBColor(r, g, b, alpha);
+        return new RGBColor(this.red(), this.green(), this.blue(), alpha);
     }
 
-    // ─────────────────────────── HSL ───────────────────────────
-
-    /**
-     * HSL 表示：色相 {@code h} 取值 {@code [0, 360)}，饱和度 {@code s} 与
-     * 亮度 {@code l} 取值 {@code [0, 1]}。
-     */
     public record HSL(double h, double s, double l)
     {
     }
 
-    /**
-     * 由 HSL 构造颜色，alpha 取 {@code 0xFF}。
-     *
-     * <p>色相按 360 取模（负值会被折回），饱和度与亮度会被夹取到 {@code [0, 1]}，
-     * 因此非法输入不会抛异常，只会被规整。</p>
-     */
-    public static RGBColor ofHsl(double hue, double saturation, double lightness)
+    // Copied from java.awt.Color.HSGtoRGB
+    public static RGBColor fromHSBtoRGB(float hue, float saturation, float brightness)
     {
-        double h = ((hue % 360.0) + 360.0) % 360.0;
-        double s = clamp01(saturation);
-        double l = clamp01(lightness);
-
-        double c = (1.0 - Math.abs(2.0 * l - 1.0)) * s;
-        double hp = h / 60.0;
-        double x = c * (1.0 - Math.abs(hp % 2.0 - 1.0));
-        double m = l - c / 2.0;
-
-        double r1;
-        double g1;
-        double b1;
-
-        switch ((int) Math.floor(hp) % 6)
+        int r = 0, g = 0, b = 0;
+        if (saturation == 0)
+            r = g = b = (int) (brightness * 255.0f + 0.5f);
+        else
         {
-            case 0 -> { r1 = c; g1 = x; b1 = 0; }
-            case 1 -> { r1 = x; g1 = c; b1 = 0; }
-            case 2 -> { r1 = 0; g1 = c; b1 = x; }
-            case 3 -> { r1 = 0; g1 = x; b1 = c; }
-            case 4 -> { r1 = x; g1 = 0; b1 = c; }
-            default -> { r1 = c; g1 = 0; b1 = x; }
+            float h = (hue - (float) Math.floor(hue)) * 6.0f;
+            float f = h - (float) Math.floor(h);
+            float p = brightness * (1.0f - saturation);
+            float q = brightness * (1.0f - saturation * f);
+            float t = brightness * (1.0f - (saturation * (1.0f - f)));
+            switch ((int) h)
+            {
+                case 0:
+                    r = (int) (brightness * 255.0f + 0.5f);
+                    g = (int) (t * 255.0f + 0.5f);
+                    b = (int) (p * 255.0f + 0.5f);
+                    break;
+                case 1:
+                    r = (int) (q * 255.0f + 0.5f);
+                    g = (int) (brightness * 255.0f + 0.5f);
+                    b = (int) (p * 255.0f + 0.5f);
+                    break;
+                case 2:
+                    r = (int) (p * 255.0f + 0.5f);
+                    g = (int) (brightness * 255.0f + 0.5f);
+                    b = (int) (t * 255.0f + 0.5f);
+                    break;
+                case 3:
+                    r = (int) (p * 255.0f + 0.5f);
+                    g = (int) (q * 255.0f + 0.5f);
+                    b = (int) (brightness * 255.0f + 0.5f);
+                    break;
+                case 4:
+                    r = (int) (t * 255.0f + 0.5f);
+                    g = (int) (p * 255.0f + 0.5f);
+                    b = (int) (brightness * 255.0f + 0.5f);
+                    break;
+                case 5:
+                    r = (int) (brightness * 255.0f + 0.5f);
+                    g = (int) (p * 255.0f + 0.5f);
+                    b = (int) (q * 255.0f + 0.5f);
+                    break;
+            }
         }
 
-        return new RGBColor(
-                toChannel(r1 + m),
-                toChannel(g1 + m),
-                toChannel(b1 + m),
-                0xFF);
+        return new RGBColor(0xFF, r, g, b);
     }
 
-    /** 转换为 HSL。灰度色的色相返回 {@code 0}。 */
-    public HSL toHsl()
+    static
     {
-        double rn = r / 255.0;
-        double gn = g / 255.0;
-        double bn = b / 255.0;
+        CODEC = RecordCodecBuilder.create(
+                inst ->
+                        inst
+                                .group(
+                                        Codec.INT
+                                                .fieldOf("rgba")
+                                                .forGetter(RGBColor::rgba)
+                                )
+                                .apply(
+                                        inst,
+                                        RGBColor::new
+                                )
+        );
 
-        double max = Math.max(rn, Math.max(gn, bn));
-        double min = Math.min(rn, Math.min(gn, bn));
-        double delta = max - min;
-
-        double l = (max + min) / 2.0;
-
-        if (delta == 0.0)
-            return new HSL(0.0, 0.0, l);
-
-        double s = delta / (1.0 - Math.abs(2.0 * l - 1.0));
-
-        double h;
-        if (max == rn)
-            h = 60.0 * (((gn - bn) / delta) % 6.0);
-        else if (max == gn)
-            h = 60.0 * (((bn - rn) / delta) + 2.0);
-        else
-            h = 60.0 * (((rn - gn) / delta) + 4.0);
-
-        if (h < 0.0)
-            h += 360.0;
-
-        return new HSL(h, s, l);
-    }
-
-    private static double clamp01(double value)
-    {
-        return Math.clamp(0.0, value, 1.0);
-    }
-
-    private static int toChannel(double value)
-    {
-        int channel = (int) Math.round(value * 255.0);
-        return channel < 0 ? 0 : (Math.min(channel, 0xFF));
-    }
-
-    private static void checkChannel(String name, int value)
-    {
-        if (value < 0 || value > 0xFF)
-            throw new IllegalArgumentException("Color channel " + name + " out of range [0, 255]: " + value);
+        STREAM_CODEC = StreamCodec.composite(
+                ByteBufCodecs.VAR_INT,
+                RGBColor::rgba,
+                RGBColor::new
+        );
     }
 }
