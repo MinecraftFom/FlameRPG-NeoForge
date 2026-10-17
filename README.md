@@ -5,7 +5,7 @@
 
 <div align="center">
 
-[![📖 简体中文文档](https://img.shields.io/badge/%F0%9F%93%96-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3-e8722a?style=for-the-badge)](./README.zh-CN.md)
+[![📖 Simplfied Chinese Docs](https://img.shields.io/badge/%F0%9F%93%96-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3-e8722a?style=for-the-badge)](./README.zh-CN.md)
 
 # 🜂 FLAME RPG
 
@@ -15,8 +15,8 @@
 [![NeoForge](https://img.shields.io/badge/NeoForge-21.1.252-e8722a?style=for-the-badge)](https://neoforged.net/)
 [![Java](https://img.shields.io/badge/Java-21-0b4f8a?style=for-the-badge&logo=openjdk&logoColor=white)](https://openjdk.org/projects/jdk/21/)
 [![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-8b0000?style=for-the-badge)](./LICENSE)
-[![Build](https://github.com/zzy89216-gif/FlameRPG-NeoForge_zzy/actions/workflows/build.yml/badge.svg)](https://github.com/zzy89216-gif/FlameRPG-NeoForge_zzy/actions/workflows/build.yml)
-[![Release](https://img.shields.io/github/v/release/zzy89216-gif/FlameRPG-NeoForge_zzy?style=for-the-badge&label=release&color=2ea44f)](https://github.com/zzy89216-gif/FlameRPG-NeoForge_zzy/releases/latest)
+[![Build](./actions/workflows/build.yml/badge.svg)](./actions/workflows/build.yml)
+[![Release](https://img.shields.io/github/v/release/MinecraftFom/FlameRPG-NeoForge?style=for-the-badge&label=release&color=2ea44f)](https://github.com/MinecraftFom/FlameRPG-NeoForge/releases/latest)
 
 </div>
 
