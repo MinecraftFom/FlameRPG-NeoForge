@@ -67,7 +67,7 @@ public abstract class AbstractEventHook
                     continue;
 
                 int modifiers = field.getModifiers();
-                if (field.getType() != boolean.class || !Modifier.isStatic(modifiers))
+                if ((field.getType() != Boolean.class && field.getType() != boolean.class) || !Modifier.isStatic(modifiers))
                     throw new IllegalStateException(
                             "@EventHookStatusStorer must annotate a static boolean field, found "
                                     + type.getName() + "." + field.getName());
