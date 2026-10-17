@@ -31,6 +31,8 @@
 - **`AbstractEventHook`**：状态字段查找改为沿继承链向上遍历，并校验字段必须是
   `static boolean`；所有异常改为携带具体类名/字段名的 `IllegalStateException`
 - **README**：修正 Mod ID（`flame_rpg` → `flamerpg`），补充文档导航与构建徽章
+- **README 拆分为双语**：`README.md` 改为英文主文档，中文版独立为 `README.zh-CN.md`；
+  两份文档顶部各有一个独立成行的语言切换按钮（不并入技术徽章行）
 
 ### 修复
 
