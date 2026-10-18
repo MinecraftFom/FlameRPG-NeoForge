@@ -5,7 +5,7 @@
 
 <div align="center">
 
-[![📖 Simplfied Chinese Docs](https://img.shields.io/badge/DOCS-Simplfied%20Chinese%20Documentaetion-e8722a?style=for-the-badge)](./README.zh-CN.md)
+[![📖 Simplfied Chinese Docs](https://img.shields.io/badge/DOCS-Simplfied%20Chinese%20Documentaetion-e8722a?style=for-the-badge)](docs/zh-cn/README.zh-CN.md)
 
 # 🜂 FLAME RPG
 
@@ -38,8 +38,8 @@
 | Fom477 on GitHub | [Fom477](https://github.com/Fom477) |
 | Fom477 website | [Fom477 Website](https://fom477.fomdev.com) |
 | Source repository | [MinecraftFom/FlameRPG-NeoForge](https://github.com/MinecraftFom/FlameRPG-NeoForge) |
-| Handover doc | [HANDOVER.md](./HANDOVER.md) — environment, structure, workflow, troubleshooting |
-| Changelog | [CHANGELOG.md](./CHANGELOG.md) |
+| Handover doc | [HANDOVER.md](docs/zh-cn/HANDOVER.zh-CN.md) — environment, structure, workflow, troubleshooting |
+| Changelog | [CHANGELOG.md](docs/zh-cn/CHANGELOG.zh-CN.md) |
 | License | [LICENSE](./LICENSE) |
 
 ---

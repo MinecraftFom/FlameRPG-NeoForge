@@ -59,16 +59,16 @@ export JAVA_HOME=/path/to/jdk-21
 
 | 项目 | 版本 | 定义位置 |
 | :--- | :--- | :--- |
-| Minecraft | `1.21.1` | `gradle.properties` → `minecraft_version` |
-| NeoForge | `21.1.252` | `gradle.properties` → `neo_version` |
-| Java | `21` | `build.gradle` → `java.toolchain` |
-| Gradle | `9.2.1` | `gradle/wrapper/gradle-wrapper.properties` |
-| 构建插件 | ModDevGradle `2.0.148` | `build.gradle` → `plugins` |
-| 映射 | Parchment `2024.11.17` | `gradle.properties` → `parchment_mappings_version` |
-| 模组版本 | `1.0.0` | `gradle.properties` → `mod_version` |
-| 授权 | All Rights Reserved | `gradle.properties` → `mod_license` |
+| Minecraft | `1.21.1` | `../../gradle.properties` → `minecraft_version` |
+| NeoForge | `21.1.252` | `../../gradle.properties` → `neo_version` |
+| Java | `21` | `../../build.gradle` → `java.toolchain` |
+| Gradle | `9.2.1` | `../../gradle/wrapper/gradle-wrapper.properties` |
+| 构建插件 | ModDevGradle `2.0.148` | `../../build.gradle` → `plugins` |
+| 映射 | Parchment `2024.11.17` | `../../gradle.properties` → `parchment_mappings_version` |
+| 模组版本 | `1.0.0` | `../../gradle.properties` → `mod_version` |
+| 授权 | All Rights Reserved | `../../gradle.properties` → `mod_license` |
 
-**版本升级时的联动点**：改 `gradle.properties` 里的版本号即可，
+**版本升级时的联动点**：改 `../../gradle.properties` 里的版本号即可，
 `src/main/templates/META-INF/neoforge.mods.toml` 中的 `${...}` 占位符
 由 `generateModMetadata` 任务在打包时统一替换，**不要**手工改模板里的占位符。
 
@@ -147,8 +147,8 @@ src/generated/resources/                          数据生成输出（如需保
 - 主模组与技能子模块的骨架、注册表与数据附件注册链路
 - 技能数据结构、技能页、技能树事件
 - 玩家技能数据的序列化与网络同步
-- 中文规格文档（`README.md`）
-- 构建工程化：`.gitignore`、`LICENSE`、GitHub Actions、上游 remote
+- 中文规格文档（`../../README.md`）
+- 构建工程化：`../../.gitignore`、`LICENSE`、GitHub Actions、上游 remote
 - **构建已验证通过**：`./gradlew build` 在 JDK 21 / Ubuntu 24.04 下 `BUILD SUCCESSFUL`，
   产物 `build/libs/flamerpg-1.0.0.jar` 内含模组元数据、语言文件、贴图与 mixin 配置
 ### 6.2 已知限制 / 待办
@@ -172,7 +172,7 @@ src/generated/resources/                          数据生成输出（如需保
 | **技能树 UI** | 未实现。没有任何 GUI/渲染代码 | 接入 `FillSkillTreeEvent` 的产物并绘制技能节点 |
 | **语言键未接入** | `assets/flamerpg/lang/*.json` 里的 8 个键当前**没有任何代码引用**，属于预留文案 | UI 实现时用 `Component.translatable(...)` 接上 |
 | **贴图为占位图** | 6 张 512×512 图由脚本生成的几何图形，非最终美术素材 | 由美术替换同名文件 |
-| **CI 未实际运行** | `.github/workflows/build.yml` 尚未在 GitHub 上触发过一次，Badge 初始会显示 `no status` | 推送后到 Actions 页面确认首次构建通过 |
+| **CI 未实际运行** | `../../.github/workflows/build.yml` 尚未在 GitHub 上触发过一次，Badge 初始会显示 `no status` | 推送后到 Actions 页面确认首次构建通过 |
 | **无单元测试 / GameTest** | `./gradlew test` 恒为 `NO-SOURCE`，没有任何测试用例 | 为 `Mth`、`RGBColor`、`SkillDataHolder` 的编解码补测试 |
 | **`SkillDataHolder` 可变性隐患** | **未修**。record 内持有可变 `ArrayList`，`unlock()` 原地修改并返回 `this`，`equals/hashCode` 语义与可变状态不一致 | 改为不可变写法：每次返回新的 holder |
 | **`FillSkillTreeEvent#isFor` 可疑** | **未改**。`parent.registry().equals(this.page.location())` 的比较对象看起来不对 | 需作者确认原始意图后修正 |
@@ -189,8 +189,8 @@ src/generated/resources/                          数据生成输出（如需保
 
 ## 七、发布流程
 
-1. 确认 `gradle.properties` 中 `mod_version` 已递增；
-2. 更新 `CHANGELOG.md`；
+1. 确认 `../../gradle.properties` 中 `mod_version` 已递增；
+2. 更新 `CHANGELOG.zh-CN.md`；
 3. 本地执行 `./gradlew build`，确认 `build/libs/flamerpg-<version>.jar` 生成；
 4. 打 tag 并推送：`git tag v<version> && git push origin v<version>`；
 5. 在 GitHub Release 中附上该 jar，并同步上传至 Modrinth / CurseForge。
@@ -213,6 +213,6 @@ src/generated/resources/                          数据生成输出（如需保
 | :--- | :--- | :--- |
 | `./gradlew: Permission denied` | 克隆后 wrapper 缺少可执行权限 | `chmod +x gradlew` |
 | `trustAnchors parameter must be non-empty` | JDK 的 `cacerts` 为空（Linux 下常见） | `update-ca-certificates -f` 后执行 `ca-certificates-java.postinst configure` |
-| 启动报找不到 `flamerpg.mixins.json` | mixin 配置文件缺失 | 确认 `src/main/resources/flamerpg.mixins.json` 存在 |
+| 启动报找不到 `flamerpg.mixins.json` | mixin 配置文件缺失 | 确认 `../../src/main/resources/flamerpg.mixins.json` 存在 |
 | 技能树图标显示为白块 | 贴图缺失或路径错误 | 检查 `assets/flamerpg/textures/gui/` |
 | 首次构建极慢 | 需下载 Gradle 发行版与全部依赖 | 耐心等待，或配置国内镜像 |

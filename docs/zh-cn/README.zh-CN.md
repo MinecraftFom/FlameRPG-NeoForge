@@ -5,7 +5,7 @@
 
 <div align="center">
 
-[![📖 Read in English](https://img.shields.io/badge/%F0%9F%93%96-Read%20in%20English-2f81f7?style=for-the-badge)](./README.md)
+[![📖 Read in English](https://img.shields.io/badge/%F0%9F%93%96-Read%20in%20English-2f81f7?style=for-the-badge)](../../README.md)
 
 # 🜂 FLAME RPG
 
@@ -37,9 +37,9 @@
 | Fom477 GitHub 主页 | [Fom477](https://github.com/Fom477) |
 | Fom477 个人网站 | [fom477.fomdev.com](https://fom477.fomdev.com) |
 | 代码仓库 | [MinecraftFom/FlameRPG-NeoForge](https://github.com/MinecraftFom/FlameRPG-NeoForge) |
-| 交接文档 | [HANDOVER.md](./HANDOVER.md) — 环境、结构、流程与排障 |
-| 更新日志 | [CHANGELOG.md](./CHANGELOG.md) |
-| 授权声明 | [LICENSE](./LICENSE) |
+| 交接文档 | [HANDOVER.md](HANDOVER.zh-CN.md) — 环境、结构、流程与排障 |
+| 更新日志 | [CHANGELOG.md](CHANGELOG.zh-CN.md) |
+| 授权声明 | [LICENSE](../../LICENSE) |
 
 ---
 
@@ -52,8 +52,8 @@
 | 项目 | 规格 |
 | :--- | :--- |
 | 定位 | **父模组（Parent Mod）**，承担核心装配与全局注册 |
-| 包路径 | [`com.fomdev.flamerpg`](./src/main/java/com/fomdev/flamerpg) |
-| 主类 | [`com.fomdev.flamerpg.init.FlameRPG`](./src/main/java/com/fomdev/flamerpg/init/FlameRPG.java) |
+| 包路径 | [`com.fomdev.flamerpg`](../../src/main/java/com/fomdev/flamerpg) |
+| 主类 | [`com.fomdev.flamerpg.init.FlameRPG`](../../src/main/java/com/fomdev/flamerpg/init/FlameRPG.java) |
 | Mod ID | `flamerpg` |
 | 模组名称 | `Flame RPG` |
 | 核心开发 | Fom477（Fom's Dev） |
@@ -64,8 +64,8 @@
 | 项目 | 规格 |
 | :--- | :--- |
 | 定位 | `Skills`（技能系统）子模块 |
-| 包路径 | [`com.fomdev.flamerpg.modules.frpg_skill`](./src/main/java/com/fomdev/flamerpg/modules/frpg_skill) |
-| 主类 | [`com.fomdev.flamerpg.modules.frpg_skill.FRPGSkill`](./src/main/java/com/fomdev/flamerpg/modules/frpg_skill/FRPGSkill.java) |
+| 包路径 | [`com.fomdev.flamerpg.modules.frpg_skill`](../../src/main/java/com/fomdev/flamerpg/modules/frpg_skill) |
+| 主类 | [`com.fomdev.flamerpg.modules.frpg_skill.FRPGSkill`](../../src/main/java/com/fomdev/flamerpg/modules/frpg_skill/FRPGSkill.java) |
 | Mod ID | `frpg_skill` |
 | 模组名称 | `FlameRPG: Skill` |
 

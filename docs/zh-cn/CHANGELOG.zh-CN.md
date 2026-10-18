@@ -16,16 +16,16 @@
 
 ### 新增
 
-- **模组资源结构**：补齐 `src/main/resources/` 目录（此前完全缺失）
+- **模组资源结构**：补齐 `../../src/main/resources` 目录（此前完全缺失）
   - `flamerpg.mixins.json`：与 `neoforge.mods.toml` 中 `[[mixins]]` 的声明对应
   - `assets/flamerpg/lang/en_us.json`、`zh_cn.json`：技能树界面文案（为后续 UI 预留）
   - `assets/flamerpg/textures/gui/`：`SkillShapes` 引用的 6 张形状贴图（占位素材）
   - `com.fomdev.flamerpg.mixin` 包：保证 Mixin 配置声明的包真实存在
-- **`.gitignore`**：排除 `build/`、`.gradle/`、`run/`、IDE 目录与构建缓存
+- **`../../.gitignore`**：排除 `../../build`、`.gradle/`、`run/`、IDE 目录与构建缓存
 - **`LICENSE`**：与 `mod_license=All Rights Reserved` 对应的授权声明
-- **`.github/workflows/build.yml`**：push / PR 自动构建并上传 jar 产物
-- **`HANDOVER.md`**：交接文档（环境、结构、流程、已知问题、排障）
-- **`CHANGELOG.md`**：本文件
+- **`../../.github/workflows/build.yml`**：push / PR 自动构建并上传 jar 产物
+- **`HANDOVER.zh-CN.md`**：交接文档（环境、结构、流程、已知问题、排障）
+- **`CHANGELOG.zh-CN.md`**：本文件
 - **HSL 颜色支持**：`RGBColor.ofHsl(h, s, l)` 由 HSL 构造颜色，`RGBColor#toHsl()` 反向转换；
   色相按 360 取模、饱和度与亮度夹取到 `[0, 1]`，非法输入不抛异常
 - **`RGBColor(java.awt.Color)` 桥接构造器**：便于从 AWT 颜色迁移，不调用则不加载 AWT
@@ -42,7 +42,7 @@
 - **`AbstractEventHook`**：状态字段查找改为沿继承链向上遍历，并校验字段必须是
   `static boolean`；所有异常改为携带具体类名/字段名的 `IllegalStateException`
 - **README**：修正 Mod ID（`flame_rpg` → `flamerpg`），补充文档导航与构建徽章
-- **README 拆分为双语**：`README.md` 改为英文主文档，中文版独立为 `README.zh-CN.md`；
+- **README 拆分为双语**：`../../README.md` 改为英文主文档，中文版独立为 `README.zh-CN.md`；
   两份文档顶部各有一个独立成行的语言切换按钮（不并入技术徽章行）
 
 ### 修复
