@@ -102,6 +102,6 @@ public class SkillTreePageRender implements GuiEventListener, Renderable, Narrat
 
     protected boolean shouldRender()
     {
-        return this.parent.currentPage != null && this.parent.currentPage.registry().equals(Objects.requireNonNull(this.page.getKey()).location());
+        return this.parent.currentPage != null && this.parent.currentPage.is(Objects.requireNonNull(this.page.getKey()));
     }
 }
