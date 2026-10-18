@@ -1,6 +1,7 @@
 package com.fomdev.flamerpg.modules.frpg_skill.gui;
 
 import com.fomdev.flamerpg.modules.frpg_skill.skill.SkillPage;
+import com.fomdev.flamerpg.util.IconImageResource;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.components.events.GuiEventListener;
@@ -39,7 +40,7 @@ public class SkillTreePageButton implements GuiEventListener, Renderable, Narrat
     @Override
     public void render(@NotNull GuiGraphics graphics, int i, int i1, float v)
     {
-        SkillPage.IconImageResource resource;
+        IconImageResource resource;
         if ((resource = this.page.value().iconResource().orElse(null)) == null)
             return;
 
@@ -86,7 +87,7 @@ public class SkillTreePageButton implements GuiEventListener, Renderable, Narrat
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button)
     {
-        if (!this.isMouseOver(mouseX, mouseY) || !this.shouldBlur())
+        if (!this.isMouseOver(mouseX, mouseY) || (this.screen.currentPage != null && !this.shouldBlur()))
             return false;
 
         this.screen.switchPage(this.page);

@@ -28,10 +28,13 @@ public class SkillTreePageRender implements GuiEventListener, Renderable, Narrat
     private final Map<ResourceLocation, Skill.SkillInstance> skills;
     private final List<SkillTreeNodeButton> subnodes;
 
+    private boolean dragging;
     private boolean focused;
 
     int xo; // XO = x_offset
     int yo; // YO = y_offset
+    int pmx; // PMX = previous_mouse_x
+    int pmy; // PMY = previous_mouse_y
 
     public SkillTreePageRender(SkillTreeScreen parent, Player player, Holder<SkillPage> page)
     {
@@ -44,6 +47,10 @@ public class SkillTreePageRender implements GuiEventListener, Renderable, Narrat
 
         this.xo = 0;
         this.yo = 0;
+        this.pmx = 0;
+        this.pmy = 0;
+
+        this.dragging = false;
         this.focused = false;
 
         this.refreshNodes();
@@ -54,6 +61,16 @@ public class SkillTreePageRender implements GuiEventListener, Renderable, Narrat
     {
         if (!this.shouldRender())
             return;
+
+        if (this.dragging)
+        {
+            this.xo += (mx - this.pmx);
+            this.yo += (my - this.pmy);
+
+        }
+
+        this.pmx = mx;
+        this.pmy = my;
 
         this.subnodes.forEach(n -> n.render(graphics, mx, my ,v));
     }
@@ -84,13 +101,38 @@ public class SkillTreePageRender implements GuiEventListener, Renderable, Narrat
     }
 
     @Override
-    public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY)
+    public boolean mouseClicked(double mouseX, double mouseY, int button)
     {
-        this.xo = (int) dragX;
-        this.yo = (int) dragX;
+        if (button == 0)
+        {
+            this.dragging = true;
+            return true;
+        }
 
-        return GuiEventListener.super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
+        return false;
     }
+
+    @Override
+    public boolean mouseReleased(double mouseX, double mouseY, int button)
+    {
+        if (button == 0)
+        {
+            this.dragging = false;
+            return true;
+        }
+
+        return false;
+    }
+
+    //    @Override
+//    public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY)
+//    {
+//        this.xo = (int) dragX;
+//        this.yo = (int) dragX;
+//        this.refreshNodes();
+//
+//        return GuiEventListener.super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
+//    }
 
     protected void refreshNodes()
     {

@@ -14,6 +14,7 @@ import net.neoforged.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,10 +22,14 @@ import java.util.Map;
 @OnlyIn(Dist.CLIENT)
 public class SkillTreeScreen extends Screen
 {
+    public static final int ICON_IMAGE_WIDTH = 16;
+    public static final int ICON_IMAGE_HEIGHT = 16;
+
     private static final Logger LOGGER;
 
     private final Player player;
     private final List<Holder<SkillPage>> tabs;
+    private final List<SkillTreePageButton> pageButtons;
     private final Map<ResourceKey<SkillPage>, SkillTreePageRender> pages;
 
     Holder<SkillPage> currentPage;
@@ -36,6 +41,7 @@ public class SkillTreeScreen extends Screen
         this.player = player;
         this.tabs = List.copyOf(FRPGRegistries.REGISTRY_SKILL_PAGE.holders().toList());
         this.pages = new HashMap<>();
+        this.pageButtons = new ArrayList<>();
 
         this.currentPage = null;
     }
@@ -45,8 +51,10 @@ public class SkillTreeScreen extends Screen
     {
         super.init();
         this.refreshPages();
+        this.refreshPageButtons();
 
-        pages.values().forEach(this::addRenderableWidget);
+        this.pages.values().forEach(this::addRenderableWidget);
+        this.pageButtons.forEach(this::addRenderableWidget);
     }
 
     @Override
@@ -79,7 +87,19 @@ public class SkillTreeScreen extends Screen
         this.pages.clear();
 
         for (Holder<SkillPage> page: this.tabs)
-            pages.put(page.getKey(), new SkillTreePageRender(this, this.player, page));
+            this.pages.put(page.getKey(), new SkillTreePageRender(this, this.player, page));
+    }
+
+    protected void refreshPageButtons()
+    {
+        this.pageButtons.clear();
+
+        int x = 0;
+        for (Holder<SkillPage> page: this.tabs)
+        {
+            this.pageButtons.add(new SkillTreePageButton(this, page, x, 0, ICON_IMAGE_WIDTH, ICON_IMAGE_HEIGHT));
+            x += ICON_IMAGE_WIDTH;
+        }
     }
 
     static
