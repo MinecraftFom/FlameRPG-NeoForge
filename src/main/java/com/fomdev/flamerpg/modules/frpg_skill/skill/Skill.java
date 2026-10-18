@@ -1,6 +1,7 @@
 package com.fomdev.flamerpg.modules.frpg_skill.skill;
 
 import com.fomdev.flamerpg.init.FlameRPG;
+import com.fomdev.flamerpg.util.IconImageResource;
 import com.fomdev.flamerpg.util.RGBColor;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 public record Skill(
-        ResourceLocation icon // The only thing a parent Skill object can control LOL
+        IconImageResource icon // The only thing a parent Skill object can control LOL
 )
 {
     public record SkillDependencies(

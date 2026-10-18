@@ -2,6 +2,7 @@ package com.fomdev.flamerpg.modules.frpg_skill.gui;
 
 import com.fomdev.flamerpg.modules.frpg_skill.skill.Skill;
 import com.fomdev.flamerpg.modules.frpg_skill.storage.SkillDataHolder;
+import com.fomdev.flamerpg.util.IconImageResource;
 import com.fomdev.flamerpg.util.Mth;
 import com.fomdev.flamerpg.util.RGBColor;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -89,10 +90,15 @@ public class SkillTreeNodeButton implements GuiEventListener, Renderable, Narrat
     {
         this.refreshPosition();
 
-        ResourceLocation icon = this.skill.skill().icon();
+        IconImageResource icon = this.skill.skill().icon();
         this.renderTooltip(graphics, mx, my);
         this.renderBg(graphics, mx, my, this.xl, this.yl, this.w, this.h);
-        graphics.blit(icon, this.xl, this.yl, 0, 0, this.w, this.h, this.w, this.h);
+
+        switch (icon.type())
+        {
+            case IMAGE -> graphics.blit(icon.resource().right().get(), this.xl, this.yl, 0, 0, this.w, this.h, this.w, this.h);
+            case ITEM  -> graphics.renderItem(icon.resource().left().get(), this.xl, this.yl);
+        }
     }
 
     @Override
