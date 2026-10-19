@@ -11,6 +11,8 @@
 
 **FRPG — an MMORPG-grade gameplay mod built for multiplayer servers**
 
+[![ModTitle](./mod_title.png)](./mod_title.png)
+
 [![Minecraft](https://img.shields.io/badge/Minecraft-1.21.1-1f1f1f?style=for-the-badge&logo=minecraft&logoColor=white)](https://www.minecraft.net/)
 [![NeoForge](https://img.shields.io/badge/NeoForge-21.1.252-e8722a?style=for-the-badge)](https://neoforged.net/)
 [![Java](https://img.shields.io/badge/Java-21-0b4f8a?style=for-the-badge&logo=openjdk&logoColor=white)](https://openjdk.org/projects/jdk/21/)
@@ -91,7 +93,7 @@ The mod is assembled from **multiple submodules** that work together as one syst
 | Leading Developer | Fom477 |
 | Co Developer | ZZY |
 | Chinese Translation | ZZY |
-| Art | Fom477 |
+| Art | Fom477, Sixawns |
 | Code | Fom477, ZZY |
 | Scripts | Fom477 |
 | Project Management | Fom477 (Fom's Dev) |
