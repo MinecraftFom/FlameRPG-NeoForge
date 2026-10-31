@@ -33,16 +33,16 @@
 
 ## ▍II. ESSENTIAL LINKS
 
-| Type | Link |
-| :--- | :--- |
-| Team GitHub | [MinecraftFom](https://github.com/MinecraftFom) |
-| Team website | [Fom's Dev Website](https://git.fomdev.com) |
-| Fom477 on GitHub | [Fom477](https://github.com/Fom477) |
-| Fom477 website | [Fom477 Website](https://fom477.fomdev.com) |
+| Type              | Link                                                                                |
+| :---              | :---                                                                                |
+| Team GitHub       | [MinecraftFom](https://github.com/MinecraftFom)                                     |
+| Team website      | [Fom's Dev Website](https://git.fomdev.com)                                         |
+| Fom477 on GitHub  | [Fom477](https://github.com/Fom477)                                                 |
+| Fom477 website    | [Fom477 Website](https://fom477.fomdev.com)                                         |
 | Source repository | [MinecraftFom/FlameRPG-NeoForge](https://github.com/MinecraftFom/FlameRPG-NeoForge) |
-| Handover doc | [HANDOVER.md](docs/zh-cn/HANDOVER.zh-CN.md) — environment, structure, workflow, troubleshooting |
-| Changelog | [CHANGELOG.md](docs/zh-cn/CHANGELOG.zh-CN.md) |
-| License | [LICENSE](./LICENSE) |
+| Handover doc      | [HANDOVER.md](docs/zh-cn/HANDOVER.zh-CN.md)                                         |
+| Changelog         | [CHANGELOG.md](docs/zh-cn/CHANGELOG.zh-CN.md)                                       |
+| License           | [LICENSE](./LICENSE)                                                                |
 
 ---
 
@@ -52,51 +52,51 @@ The mod is assembled from **multiple submodules** that work together as one syst
 
 ### 3.1 Parent module — `flamerpg`
 
-| Item | Specification |
-| :--- | :--- |
-| Role | **Parent mod**, owns core assembly and global registration |
-| Package | [`com.fomdev.flamerpg`](./src/main/java/com/fomdev/flamerpg) |
-| Main class | [`com.fomdev.flamerpg.init.FlameRPG`](./src/main/java/com/fomdev/flamerpg/init/FlameRPG.java) |
-| Mod ID | `flamerpg` |
-| Mod name | `Flame RPG` |
-| Core developer | Fom477 (Fom's Dev) |
-| Co-developers | None |
+| Subject        | Description                                                                                   |
+| :---           | :---                                                                                          |
+| Role           | **Parent mod**, owns core assembly and global registration                                    |
+| Package        | [`com.fomdev.flamerpg`](./src/main/java/com/fomdev/flamerpg)                                  |
+| Main class     | [`com.fomdev.flamerpg.init.FlameRPG`](./src/main/java/com/fomdev/flamerpg/init/FlameRPG.java) |
+| Mod ID         | `flamerpg`                                                                                    |
+| Mod name       | `Flame RPG`                                                                                   |
+| Core developer | Fom477 (Fom's Dev)                                                                            |
+| Co-developers  | None                                                                                          |
 
 ### 3.2 Sub-module — Skills `frpg_skill`
 
-| Item | Specification |
-| :--- | :--- |
-| Role | Sub-module for the `Skills` system |
-| Package | [`com.fomdev.flamerpg.modules.frpg_skill`](./src/main/java/com/fomdev/flamerpg/modules/frpg_skill) |
+| Subject    | Desciption                                                                                                                  |
+| :---       | :---                                                                                                                        |
+| Role       | Sub-module for the `Skills` system                                                                                          |
+| Package    | [`com.fomdev.flamerpg.modules.frpg_skill`](./src/main/java/com/fomdev/flamerpg/modules/frpg_skill)                          |
 | Main class | [`com.fomdev.flamerpg.modules.frpg_skill.FRPGSkill`](./src/main/java/com/fomdev/flamerpg/modules/frpg_skill/FRPGSkill.java) |
-| Mod ID | `frpg_skill` |
-| Mod name | `FlameRPG: Skill` |
+| Mod ID     | `frpg_skill`                                                                                                                |
+| Mod name   | `FlameRPG: Skill`                                                                                                           |
 
 ---
 
 ## ▍IV. TECHNICAL SPECIFICATION
 
-| Item | Value |
-| :--- | :--- |
-| Minecraft | `1.21.1` |
-| Mod loader | NeoForge `21.1.252` (`javafml`) |
-| Java toolchain | Java `21` |
-| Build plugin | ModDevGradle `2.0.148` |
-| Mappings | Parchment `2024.11.17` |
-| Mod version | `1.0.0` |
-| License | All Rights Reserved |
+| Item           | Value                           |
+| :---           | :---                            |
+| Minecraft      | `1.21.1`                        |
+| Mod loader     | NeoForge `21.1.252` (`javafml`) |
+| Java toolchain | Java `21`                       |
+| Build plugin   | ModDevGradle `2.0.148`          |
+| Mappings       | Parchment `2024.11.17`          |
+| Mod version    | `1.0.0`                         |
+| License        | All Rights Reserved             |
 
 ## | V. MOD AUTHORS
 
-| Part | Developers |
-| :--- | :---       |
-| Leading Developer | Fom477 |
-| Co Developer | ZZY |
-| Chinese Translation | ZZY |
-| Art | Fom477, Sixawns |
-| Code | Fom477, ZZY |
-| Scripts | Fom477 |
-| Project Management | Fom477 (Fom's Dev) |
+| Part                | Developers         |
+| :---                | :---               |
+| Leading Developer   | Fom477             |
+| Co Developer        | ZZY                |
+| Chinese Translation | ZZY                |
+| Art                 | Fom477, Sixawns    |
+| Code                | Fom477, ZZY        |
+| Scripts             | Fom477             |
+| Project Management  | Fom477 (Fom's Dev) |
 
 ### Build & Run
 
