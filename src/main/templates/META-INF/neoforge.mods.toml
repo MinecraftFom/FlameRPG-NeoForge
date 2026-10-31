@@ -13,6 +13,15 @@ MMORPG for Minecraft Servers
 logoFile = "icon.png"
 
 [[mods]]
+modId = "frpg_bauble"
+version = "${mod_version}"
+displayName = "FlameRPG: Bauble"
+authors = "Shiroko Sunaookami"
+description = '''
+Submodule for FlameRPG, aiming to create a bauble system
+'''
+
+[[mods]]
 modId = "frpg_skill"
 version = "${mod_version}"
 displayName = "FlameRPG: Skill"
