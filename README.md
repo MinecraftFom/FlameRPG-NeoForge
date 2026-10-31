@@ -62,6 +62,16 @@ The mod is assembled from **multiple submodules** that work together as one syst
 | Core developer | Fom477 (Fom's Dev)                                                                            |
 | Co-developers  | None                                                                                          |
 
+### 3.2 Sub-module - Baubles `frpg_bauble`
+
+| Subject    | Desciption                                                                                                                     |
+| :---       | :---                                                                                                                           |
+| Role       | Sub-module for the `Baubles` system                                                                                            |
+| Package    | [`com.fomdev.flamerpg.modules.frpg_bauble`](./src/main/java/com/fomdev/flamerpg/modules/frpg_bauble)                           |
+| Main class | [`com.fomdev.flamerpg.modules.frpg_bauble.FRPGBauble`](./src/main/java/com/fomdev/flamerpg/modules/frpg_skill/FRPGBauble.java) |
+| Mod ID     | `frpg_bauble`                                                                                                                  |
+| Mod name   | `FlameRPG: Bauble`                                                                                                             |
+
 ### 3.2 Sub-module — Skills `frpg_skill`
 
 | Subject    | Desciption                                                                                                                  |
