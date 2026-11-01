@@ -7,7 +7,7 @@ import net.neoforged.fml.common.Mod;
 @Mod(FRPGInvasion.MDOID)
 public class FRPGInvasion
 {
-    public static final String MDOID = "invasion";
+    public static final String MDOID = "frpg_invasion";
 
     public FRPGInvasion(IEventBus bus, ModContainer container)
     {
