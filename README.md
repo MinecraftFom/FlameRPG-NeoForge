@@ -64,15 +64,25 @@ The mod is assembled from **multiple submodules** that work together as one syst
 
 ### 3.2 Sub-module - Baubles `frpg_bauble`
 
-| Subject    | Desciption                                                                                                                     |
-| :---       | :---                                                                                                                           |
-| Role       | Sub-module for the `Baubles` system                                                                                            |
-| Package    | [`com.fomdev.flamerpg.modules.frpg_bauble`](./src/main/java/com/fomdev/flamerpg/modules/frpg_bauble)                           |
-| Main class | [`com.fomdev.flamerpg.modules.frpg_bauble.FRPGBauble`](./src/main/java/com/fomdev/flamerpg/modules/frpg_skill/FRPGBauble.java) |
-| Mod ID     | `frpg_bauble`                                                                                                                  |
-| Mod name   | `FlameRPG: Bauble`                                                                                                             |
+| Subject    | Desciption                                                                                                                      |
+| :---       | :---                                                                                                                            |
+| Role       | Sub-module for the `Baubles` system                                                                                             |
+| Package    | [`com.fomdev.flamerpg.modules.frpg_bauble`](./src/main/java/com/fomdev/flamerpg/modules/frpg_bauble)                            |
+| Main class | [`com.fomdev.flamerpg.modules.frpg_bauble.FRPGBauble`](./src/main/java/com/fomdev/flamerpg/modules/frpg_bauble/FRPGBauble.java) |
+| Mod ID     | `frpg_bauble`                                                                                                                   |
+| Mod name   | `FlameRPG: Bauble`                                                                                                              |
 
-### 3.2 Sub-module — Skills `frpg_skill`
+### 3.3 Sub-module - Invasion `frpg_invasion`
+
+| Subject    | Desciption                                                                                                                              |
+| :---       | :---                                                                                                                                    |
+| Role       | Sub-module for the `Invasoin` system                                                                                                    |
+| Package    | [`com.fomdev.flamerpg.modules.frpg_invasion`](./src/main/java/com/fomdev/flamerpg/modules/frpg_invasion)                                |
+| Main class | [`com.fomdev.flamerpg.modules.frpg_invasion.FRPGInvasion`](./src/main/java/com/fomdev/flamerpg/modules/frpg_invasion/FRPGInvasion.java) |
+| Mod ID     | `frpg_invasion`                                                                                                                         |
+| Mod name   | `FlameRPG: Invasion`                                                                                                                    |
+
+### 3.4 Sub-module — Skills `frpg_skill`
 
 | Subject    | Desciption                                                                                                                  |
 | :---       | :---                                                                                                                        |

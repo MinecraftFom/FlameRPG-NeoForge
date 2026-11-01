@@ -22,6 +22,15 @@ Submodule for FlameRPG, aiming to create a bauble system
 '''
 
 [[mods]]
+modId = "frpg_invasion"
+version = "${mod_version}"
+displayName = "FlameRPG: Invasion"
+authors = "Shimoe Koharu"
+description = '''
+Submodule for FlameRPG, aiming to being invasions to minecraft
+'''
+
+[[mods]]
 modId = "frpg_skill"
 version = "${mod_version}"
 displayName = "FlameRPG: Skill"
